@@ -11,7 +11,7 @@ const prompt = require("prompt-sync")({ sigint: true });
 const pageId = prompt("notion page id: ");
 const title = prompt("post title: ");
 const excerpt = prompt("post excerpt: ");
-const tags = prompt("post tags: ").split(",");
+const tags = prompt("post tags(separated by ,): ").split(",");
 
 const notion = new Client({
   auth: notionKey,
