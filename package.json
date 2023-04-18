@@ -1,0 +1,9 @@
+{
+  "name": "notion2ghost",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "notion-to-md": "^2.5.6"
+  }
+}
