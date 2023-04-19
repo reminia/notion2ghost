@@ -10,6 +10,7 @@ const ghostKey = process.env.GhostKey
 const prompt = require("prompt-sync")({ sigint: true });
 const pageId = prompt("notion page id: ");
 const title = prompt("post title: ");
+const slug = prompt("post url slug: ");
 const excerpt = prompt("post excerpt: ");
 const tags = prompt("post tags(separated by ,): ").split(",");
 
@@ -39,6 +40,9 @@ const mdoc = {"version":"0.3.1","atoms":[],"cards":[["markdown", {"cardName": "m
     mobiledoc: json,
     custom_excerpt: excerpt
   };
+  if(slug) {
+      post.slug = slug;
+  }
   ghost.posts.add(post)
     .then((response) => {
       //console.log(response);
