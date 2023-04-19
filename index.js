@@ -30,6 +30,10 @@ const mdoc = {"version":"0.3.1","atoms":[],"cards":[["markdown", {"cardName": "m
 
 (async () => {
   const mdblocks = await n2m.pageToMarkdown(pageId);
+  if(!mdblocks.length) {
+    console.warn(`Cannot find any blocks, possibly invalid pageId ${pageId}`);
+    process.exit(1);
+  }
   const mdString = n2m.toMarkdownString(mdblocks);
   mdoc.cards[0][1]["markdown"] = mdString;
   const json = JSON.stringify(mdoc);
