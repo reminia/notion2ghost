@@ -16,12 +16,11 @@ const tags = prompt("post tags(separated by ,): ").split(",");
 const notion = new Client({
   auth: notionKey,
 });
-// passing notion client to the option
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 const GhostAdminAPI = require('@tryghost/admin-api');
 const ghost = new GhostAdminAPI({
-  url: ghostHost, // move to config
+  url: ghostHost, 
   key: ghostKey,
   version: 'v4'
 });
