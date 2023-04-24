@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-node index.js
+WORK_DIR="$(dirname "$(readlink -f "$0")")"
+node $WORK_DIR/index.js
