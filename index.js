@@ -1,3 +1,4 @@
+const util = require('./util.js')
 const { Client } = require("@notionhq/client");
 const { NotionToMarkdown } = require("notion-to-md");
 const fs = require('fs');
@@ -8,7 +9,10 @@ const ghostHost = process.env.GhostHost
 const ghostKey = process.env.GhostKey
 
 const prompt = require("prompt-sync")({ sigint: true });
-const pageId = prompt("notion page id: ");
+var pageId = prompt("notion page id: ");
+pageId = util.parseUrl(pageId);
+console.log("notion page id is " + pageId)
+
 const title = prompt("post title: ");
 const slug = prompt("post url slug: ");
 const excerpt = prompt("post excerpt: ");
