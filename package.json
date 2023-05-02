@@ -6,6 +6,7 @@
   "dependencies": {
     "@notionhq/client": "^2.2.4",
     "@tryghost/admin-api": "^1.13.5",
+    "cloudinary": "^1.36.2",
     "dotenv": "^16.0.3",
     "notion-to-md": "^2.5.6",
     "prompt-sync": "^4.2.0"

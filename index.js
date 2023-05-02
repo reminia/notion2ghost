@@ -1,4 +1,5 @@
-const util = require('./util.js')
+const cloudinary = require("cloudinary");
+const util = require('./util.js');
 const { Client } = require("@notionhq/client");
 const { NotionToMarkdown } = require("notion-to-md");
 const fs = require('fs');
@@ -18,10 +19,27 @@ const slug = prompt("post url slug: ");
 const excerpt = prompt("post excerpt: ");
 const tags = prompt("post tags(separated by ,): ").split(",");
 
+
+var v2 = cloudinary.v2;
+v2.config({ 
+  cloud_name: process.env.cloudinary_cloud, 
+  api_key: process.env.cloudinary_key, 
+  api_secret: process.env.cloudinary_secret,
+  secure: true
+});
+
 const notion = new Client({
   auth: notionKey,
 });
-const n2m = new NotionToMarkdown({ notionClient: notion });
+var n2m = new NotionToMarkdown({ notionClient: notion });
+n2m = n2m.setCustomTransformer("image", async (block) => {
+  var url = block.image.file.url;
+  const uploadedImage = await v2.uploader.upload(url, 
+    {folder: "blog-images"}).catch(err => {
+        console.log(err);
+    });
+  return `![${block.id}](${uploadedImage.secure_url})`;
+});
 
 const GhostAdminAPI = require('@tryghost/admin-api');
 const ghost = new GhostAdminAPI({
