@@ -7,3 +7,5 @@ This script publishes notion page to ghost blog.
     You can also remove the image transformer if u want to keep the original url from notion. 
     Notion stores the image at aws cloud.
 3. Run `yarn start`, it will prompt u to input notion page id, title, slug, excerpt and tags.
+
+This project is full guided by ChatGPT :)

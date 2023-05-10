@@ -19,7 +19,6 @@ const slug = prompt("post url slug: ");
 const excerpt = prompt("post excerpt: ");
 const tags = prompt("post tags(separated by ,): ").split(",");
 
-
 var v2 = cloudinary.v2;
 v2.config({ 
   cloud_name: process.env.cloudinary_cloud, 
