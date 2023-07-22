@@ -5,9 +5,9 @@ const { NotionToMarkdown } = require("notion-to-md");
 const fs = require('fs');
 
 require('dotenv').config()
-const notionKey = process.env.NotionKey
-const ghostHost = process.env.GhostHost
-const ghostKey = process.env.GhostKey
+const notionKey = process.env.NOTION_KEY
+const ghostHost = process.env.GHOST_HOST
+const ghostKey = process.env.GHOST_KEY
 
 const prompt = require("prompt-sync")({ sigint: true });
 var pageId = prompt("notion page id: ");
@@ -21,9 +21,9 @@ const tags = prompt("post tags(separated by ,): ").split(",");
 
 var v2 = cloudinary.v2;
 v2.config({ 
-  cloud_name: process.env.cloudinary_cloud, 
-  api_key: process.env.cloudinary_key, 
-  api_secret: process.env.cloudinary_secret,
+  cloud_name: process.env.CLOUDINARY_CLOUD, 
+  api_key: process.env.CLOUDINARY_KEY, 
+  api_secret: process.env.CLOUDINARY_SECRET,
   secure: true
 });
 
