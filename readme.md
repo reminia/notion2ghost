@@ -13,6 +13,6 @@ Refer to the .sample.env file to set up env variables for notion, ghost and clou
 
 Run `yarn start` to execute the index.js script. Or execute `yarn link` first and then run `notion2ghost` command anywhere. Below is a sample:
 
-![sample](https://asset.cloudinary.com/leecy-me/c9689949b15bb0320ddc003e20c8a78b)
+![sample](https://res.cloudinary.com/leecy-me/image/upload/v1689994812/open/notion2ghost-sample_puc8ld.jpg)
 
 This project is fully guided by ChatGPT :)
