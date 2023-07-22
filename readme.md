@@ -2,7 +2,8 @@
 
 notion2ghost is a simple node project publishing notion page as ghost cms post.
 
-Images in notion page will be auto uploaded to cloudinary and included in the generated markdown. Although images in notion are stored in aws cloud by default, I don't want to use that link, it's very slow. As I'm a blogger, I'm more willing to serve all the resources through media content providers with CDN.
+Images in notion page will be auto uploaded to cloudinary and included in the generated markdown.   
+Although images in notion are stored in aws cloud by default, I don't want to use that link, it's very slow. I'm more willing to serve all the resources through media content providers with CDN as a blogger.
 # Setup
 
 Refer to the .sample.env file to set up env variables for notion, ghost and cloudinary.
