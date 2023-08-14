@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com
+          scope: '@reminia'
           always-auth: true
       - name: Install deps
         run:  yarn
