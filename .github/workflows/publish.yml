@@ -21,6 +21,6 @@ jobs:
       - name: Install deps
         run:  yarn
       - name: Publish to github
-        run: yarn publish --verbose
+        run: yarn publish --verbose --registry=https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
