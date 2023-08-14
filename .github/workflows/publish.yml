@@ -16,6 +16,6 @@ jobs:
       - name: install deps
         run:  yarn
       - name: publish to github
-        run: yarn npm publish
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
