@@ -14,12 +14,12 @@ jobs:
       - name: Setup node env
         uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
-          registry-url: 'https://npm.pkg.github.com'
+          node-version: 16
+          registry-url: https://npm.pkg.github.com
           always-auth: true
-      - name: install deps
+      - name: Install deps
         run:  yarn
-      - name: publish to github
+      - name: Publish to github
         run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
