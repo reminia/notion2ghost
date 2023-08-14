@@ -4,7 +4,9 @@ const { Client } = require("@notionhq/client");
 const { NotionToMarkdown } = require("notion-to-md");
 const fs = require('fs');
 
-require('dotenv').config()
+if (process.env.NODE_ENV != 'production') {
+  require('dotenv').config();
+}
 const notionKey = process.env.NOTION_KEY
 const ghostHost = process.env.GHOST_HOST
 const ghostKey = process.env.GHOST_KEY
@@ -20,9 +22,9 @@ const excerpt = prompt("post excerpt: ");
 const tags = prompt("post tags(separated by ,): ").split(",");
 
 var v2 = cloudinary.v2;
-v2.config({ 
-  cloud_name: process.env.CLOUDINARY_CLOUD, 
-  api_key: process.env.CLOUDINARY_KEY, 
+v2.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD,
+  api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET,
   secure: true
 });
@@ -33,25 +35,25 @@ const notion = new Client({
 var n2m = new NotionToMarkdown({ notionClient: notion });
 n2m = n2m.setCustomTransformer("image", async (block) => {
   var url = block.image.file.url;
-  const uploadedImage = await v2.uploader.upload(url, 
-    {folder: "blog-images"}).catch(err => {
-        console.log(err);
+  const uploadedImage = await v2.uploader.upload(url,
+    { folder: "blog-images" }).catch(err => {
+      console.log(err);
     });
   return `![${block.id}](${uploadedImage.secure_url})`;
 });
 
 const GhostAdminAPI = require('@tryghost/admin-api');
 const ghost = new GhostAdminAPI({
-  url: ghostHost, 
+  url: ghostHost,
   key: ghostKey,
   version: 'v4'
 });
 
-const mdoc = {"version":"0.3.1","atoms":[],"cards":[["markdown", {"cardName": "markdown"}]],"markups":[],"sections": [[10, 0]]};
+const mdoc = { "version": "0.3.1", "atoms": [], "cards": [["markdown", { "cardName": "markdown" }]], "markups": [], "sections": [[10, 0]] };
 
 (async () => {
   const mdblocks = await n2m.pageToMarkdown(pageId);
-  if(!mdblocks.length) {
+  if (!mdblocks.length) {
     console.warn(`Cannot find any blocks, possibly invalid pageId ${pageId}`);
     process.exit(1);
   }
@@ -65,8 +67,8 @@ const mdoc = {"version":"0.3.1","atoms":[],"cards":[["markdown", {"cardName": "m
     mobiledoc: json,
     custom_excerpt: excerpt
   };
-  if(slug) {
-      post.slug = slug;
+  if (slug) {
+    post.slug = slug;
   }
   ghost.posts.add(post)
     .then((response) => {

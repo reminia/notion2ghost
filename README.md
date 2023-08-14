@@ -1,18 +1,16 @@
 # notion2ghost
 
-notion2ghost is a simple node project publishing notion page as ghost cms post.
+notion2ghost is a simple node cli tool which publishes notion page as ghost cms post.
 
-Images in notion page will be auto uploaded to cloudinary and included in the generated markdown.   
-Although images in notion are stored in aws cloud by default, it's much slow.  
-I'm more willing to serve resources through media content providers with CDN as a blogger.
+This tool will auto upload all images to cloudinary and add the links to post markdown. Though images in notion are stored in aws by default, it's quite slow to access directly. I'm more willing to serve resources through media content providers with CDN.
+
 # Setup
 
-Refer to the .sample.env file to set up env variables for notion, ghost and cloudinary.
+Refer to the .sample.env file to set up env variables for notion, ghost and cloudinary. Don't forget to set `NODE_ENV` var to **production**.
 
-# Start
+# Usage
 
-Run `yarn start` to execute the index.js script. Or execute `yarn link` first and then run `notion2ghost` command anywhere. Below is a sample:
-
+Install the tool by `npm install --global notion2ghost`. Use it like below:
 ![sample](https://res.cloudinary.com/leecy-me/image/upload/v1689994812/open/notion2ghost-sample_puc8ld.jpg)
 
 This project is fully guided by ChatGPT :)
