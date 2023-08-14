@@ -10,7 +10,7 @@ Refer to the .sample.env file to set up env variables for notion, ghost and clou
 
 # Usage
 
-Install the tool by `npm install --global notion2ghost`. Use it like below:
+Install the tool by `npm install --global @reminia/notion2ghost`. Use it like below:
 ![sample](https://res.cloudinary.com/leecy-me/image/upload/v1689994812/open/notion2ghost-sample_puc8ld.jpg)
 
 This project is fully guided by ChatGPT :)
