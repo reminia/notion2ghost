@@ -2,7 +2,7 @@
 
 notion2ghost is a simple node cli tool which publishes notion page as ghost cms post.
 
-This tool will auto upload all images to cloudinary and add the links to post markdown. Though images in notion are stored in aws by default, it's quite slow to access directly. I'm more willing to serve resources through media content providers with CDN.
+This tool will auto upload all images to cloudinary and add the links to post markdown. Though images in notion are stored in aws already, it's quite slow to access directly. I'm more willing to serve resources through media content providers with CDN.
 
 # Setup
 
