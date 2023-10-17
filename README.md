@@ -6,7 +6,7 @@ This tool will auto upload all images to cloudinary and add the links to post ma
 
 # Setup
 
-Refer to the .sample.env file to set up env variables for notion, ghost and cloudinary. Don't forget to set `NODE_ENV` var to **production**.
+Refer to the .sample.env file to set up env variables for notion, ghost and cloudinary.
 
 # Usage
 
