@@ -1,6 +1,6 @@
 {
   "name": "@reminia/notion2ghost",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a cli tool that publishes notion page to ghost cms",
   "main": "index.js",
   "homepage": "https://github.com/reminia/notion2ghost",
