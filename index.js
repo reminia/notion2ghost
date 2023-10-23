@@ -23,7 +23,7 @@ let pageId = prompt("notion page id: ");
 pageId = util.parseUrl(pageId);
 console.log("notion page id is " + pageId)
 
-const title = prompt("ost title: ");
+const title = prompt("post title: ");
 const slug = prompt("post url slug: ");
 const excerpt = prompt("post excerpt: ");
 const tags = prompt("post tags(separated by ,): ").split(",");
