@@ -1,14 +1,16 @@
 # notion2ghost
 
-notion2ghost is a simple node cli tool which publishes notion page as ghost cms post.
+notion2ghost is a simple cli tool that publishes notion page as ghost cms post.
 
-This tool will auto upload all images to cloudinary and add the links to post markdown. Though images in notion are stored in aws already, it's quite slow to access directly. I'm more willing to serve resources through media content providers with CDN.
+This tool will auto upload all post images to cloudinary and add cloudinary links to markdown. Images in notion page are stored in aws, but I don't want to expose aws links. I'm more willing to serve resources through a CDN which is more quick.
 
-# Setup
+## Setup
 
 Refer to the .sample.env file to set up env variables for notion, ghost and cloudinary.
 
-# Usage
+Notion key is the integration secret for accessing the notion api.
+
+## Usage
 
 Install the tool by `npm install --global @reminia/notion2ghost --registry=https://npm.pkg.github.com`. Use it like below:
 ![sample](https://res.cloudinary.com/leecy-me/image/upload/v1689994812/open/notion2ghost-sample_puc8ld.jpg)
