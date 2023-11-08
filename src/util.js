@@ -13,4 +13,13 @@ function parseUrl(url) {
   }
 }
 
-module.exports = {parseUrl};
+
+const env = process.env.NODE_ENV
+// run f in dev env
+function devMode(f) {
+  if (env !== 'production') {
+    f()
+  }
+}
+
+module.exports = {parseUrl, devMode};
