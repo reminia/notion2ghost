@@ -18,9 +18,14 @@
     "prompt-sync": "^4.2.0"
   },
   "scripts": {
-    "start": "node src/main.js"
+    "start": "node src/main.js",
+    "lint": "npx eslint src/*"
   },
   "bin": {
     "notion2ghost": "./bin/cli.sh"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.53.0"
   }
 }

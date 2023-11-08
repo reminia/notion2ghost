@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 WORK_DIR=$(dirname $(readlink -f $0))
 cd $WORK_DIR
-NODE_ENV=production node ../src/index.js
+NODE_ENV=production node ../src/main.js
