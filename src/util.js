@@ -3,7 +3,7 @@ function last(arr) {
 }
 
 function parseUrl(url) {
-  if(url.startsWith("http")) {
+  if (url.startsWith("http")) {
     let end = last(url.split("/"));
     return last(end.split("-")).split("?")[0];
   } else {
@@ -19,4 +19,4 @@ function devMode(f) {
   }
 }
 
-module.exports = {parseUrl, devMode};
+module.exports = { parseUrl, devMode };
