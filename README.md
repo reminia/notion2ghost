@@ -1,8 +1,8 @@
 # notion2ghost
 
-notion2ghost is a simple cli tool that publishes notion page as Ghost CMS post.
+notion2ghost is a simple cli tool that publishes notion page as ghost CMS post.
 During the process, all the images will be uploaded to cloudinary and the new links will be inserted into the parsed markdown.
-So we don't need to store images locally in Ghost CMS.
+So we don't need to store images locally in ghost CMS.
 
 ## Setup
 
