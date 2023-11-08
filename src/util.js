@@ -4,15 +4,12 @@ function last(arr) {
 
 function parseUrl(url) {
   if(url.startsWith("http")) {
-    var end = last(url.split("/"));
-    var id = last(end.split("-")).split("?")[0];
-    console.log(id);
-    return id;
+    let end = last(url.split("/"));
+    return last(end.split("-")).split("?")[0];
   } else {
     return url;
   }
 }
-
 
 const env = process.env.NODE_ENV
 // run f in dev env
