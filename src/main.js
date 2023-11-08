@@ -1,24 +1,16 @@
 const cloudinary = require("cloudinary");
 const util = require('./util.js');
-const {Client} = require("@notionhq/client");
-const {NotionToMarkdown} = require("notion-to-md");
+const { Client } = require("@notionhq/client");
+const { NotionToMarkdown } = require("notion-to-md");
 const fs = require('fs');
 
-const env = process.env.NODE_ENV
-
-function devMode(f) {
-  if (env !== 'production') {
-    f()
-  }
-}
-
-devMode(() => require('dotenv').config())
+util.devMode(() => require('dotenv').config())
 
 const notionKey = process.env.NOTION_KEY
 const ghostHost = process.env.GHOST_HOST
 const ghostKey = process.env.GHOST_KEY
 
-const prompt = require("prompt-sync")({sigint: true});
+const prompt = require("prompt-sync")({ sigint: true });
 let pageId = prompt("notion page id: ");
 pageId = util.parseUrl(pageId);
 console.log("notion page id is " + pageId)
@@ -39,14 +31,14 @@ v2.config({
 const notion = new Client({
   auth: notionKey,
 });
-let n2m = new NotionToMarkdown({notionClient: notion});
+let n2m = new NotionToMarkdown({ notionClient: notion });
 n2m = n2m.setCustomTransformer("image", async (block) => {
   const url = block.image.file.url;
   const uploadedImage = await v2.uploader
-  .upload(url, {folder: "blog-images"})
-  .catch(err => {
-    console.log(err);
-  });
+    .upload(url, { folder: "blog-images" })
+    .catch(err => {
+      console.log(err);
+    });
   return `![${block.id}](${uploadedImage.secure_url})`;
 });
 
@@ -60,7 +52,7 @@ const ghost = new GhostAdminAPI({
 const mdoc = {
   "version": "0.3.1",
   "atoms": [],
-  "cards": [["markdown", {"cardName": "markdown"}]],
+  "cards": [["markdown", { "cardName": "markdown" }]],
   "markups": [],
   "sections": [[10, 0]]
 };
@@ -85,17 +77,17 @@ const mdoc = {
     post.slug = slug;
   }
   ghost.posts.add(post)
-  .then((response) => {
-    devMode(() => console.log(response))
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+    .then((response) => {
+      util.devMode(() => console.log(response))
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
-  devMode(() =>
-      //writing markdown to file
-      fs.writeFile("post.md", mdString, (err) => {
-        console.log(err);
-      })
+  util.devMode(() =>
+    //writing markdown to file
+    fs.writeFile("post.md", mdString, (err) => {
+      console.log(err);
+    })
   )
 })();
