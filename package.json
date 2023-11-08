@@ -2,7 +2,7 @@
   "name": "@reminia/notion2ghost",
   "version": "1.0.1",
   "description": "a cli tool that publishes notion page to ghost cms",
-  "main": "index.js",
+  "main": "src/main.js",
   "homepage": "https://github.com/reminia/notion2ghost",
   "keywords": ["notion", "ghost"],
   "license": "MIT",
@@ -15,7 +15,7 @@
     "prompt-sync": "^4.2.0"
   },
   "scripts": {
-    "start": "node main.js"
+    "start": "node src/main.js"
   },
   "bin": {
     "notion2ghost": "./bin/cli.sh"
