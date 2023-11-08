@@ -15,9 +15,9 @@
     "prompt-sync": "^4.2.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node main.js"
   },
   "bin": {
-    "notion2ghost": "./cli.sh"
+    "notion2ghost": "./bin/cli.sh"
   }
 }
