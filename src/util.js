@@ -11,11 +11,11 @@ function parseUrl(url) {
   }
 }
 
-const env = process.env.NODE_ENV
+const env = process.env.NODE_ENV;
 // run f in dev env
 function devMode(f) {
   if (env !== 'production') {
-    f()
+    f();
   }
 }
 

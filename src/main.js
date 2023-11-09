@@ -4,16 +4,16 @@ const { Client } = require("@notionhq/client");
 const { NotionToMarkdown } = require("notion-to-md");
 const fs = require('fs');
 
-util.devMode(() => require('dotenv').config())
+util.devMode(() => require('dotenv').config());
 
-const notionKey = process.env.NOTION_KEY
-const ghostHost = process.env.GHOST_HOST
-const ghostKey = process.env.GHOST_KEY
+const notionKey = process.env.NOTION_KEY;
+const ghostHost = process.env.GHOST_HOST;
+const ghostKey = process.env.GHOST_KEY;
 
 const prompt = require("prompt-sync")({ sigint: true });
 let pageId = prompt("notion page id: ");
 pageId = util.parseUrl(pageId);
-console.log("notion page id is " + pageId)
+console.log("notion page id is " + pageId);
 
 const title = prompt("post title: ");
 const slug = prompt("post url slug: ");
@@ -78,7 +78,7 @@ const mdoc = {
   }
   ghost.posts.add(post)
     .then((response) => {
-      util.devMode(() => console.log(response))
+      util.devMode(() => console.log(response));
     })
     .catch((error) => {
       console.error(error);
@@ -89,5 +89,5 @@ const mdoc = {
     fs.writeFile("post.md", mdString, (err) => {
       console.log(err);
     })
-  )
+  );
 })();
