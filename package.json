@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "node src/main.js",
-    "lint": "npx eslint src/*"
+    "lint": "npx eslint src/*.js"
   },
   "bin": {
     "notion2ghost": "./bin/cli.sh"
