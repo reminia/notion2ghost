@@ -2,13 +2,15 @@
 
 notion2ghost is a simple cli tool that publishes notion page as ghost CMS post.
 During the process, all the images will be uploaded to cloudinary and the new links will be inserted into the parsed markdown.
-So we don't need to store images locally in ghost CMS.
+So images will not be stored locally in server.
 
 ## Setup
 
 Refer to the .sample.env file to set up env variables for notion, ghost and cloudinary.
 
-Notion key is the integration secret for accessing the notion api.
+* Notion key is the integration secret for accessing notion api.
+* Ghost host and key are to access the ghost api.
+* Cloudinary settings are for uploading images to cloudinary.
 
 ## Usage
 
